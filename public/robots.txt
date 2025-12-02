@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive paths
+Disallow: /dist/
+
+Sitemap: https://abishek-c.vercel.app/sitemap.xml
