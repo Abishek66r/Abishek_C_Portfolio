@@ -20,8 +20,8 @@ const Projects = () => {
              initial={{opacity: 0, x: -100}}
              transition={{duration: 1}}
              className='w-full md:w-1/3'>
-            <picture>
-              <source srcSet={project.image.replace(/\.(png|jpg|jpeg)$/, '.webp')} type="image/webp" />
+           <picture>
+              <source srcSet={project.webp} type="image/webp" />
               <img
                 src={project.image}
                 width={250}

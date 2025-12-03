@@ -89,7 +89,7 @@ const Hero = () => {
                         className='pb-2 text-3xl sm:text-4xl tracking-tight lg:text-8xl leading-tight'>Abishek C</motion.h1>   
                     <motion.span 
                         variants={childVarients}
-                        className='bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-xl sm:text-2xl md:text-3xl tracking-tight text-transparent font-mono'>
+                        className='bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-xl sm:text-2xl md:text-3xl tracking-tight text-transparent'>
                         {typed}
                         <span className={`ml-1 text-stone-300 ${cursorVisible ? 'opacity-100' : 'opacity-0'}`}>|</span>
                     </motion.span>  
