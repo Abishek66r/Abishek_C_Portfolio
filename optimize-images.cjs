@@ -7,8 +7,6 @@ const projectsDir = path.join(assetsDir, 'projects');
 
 const images = [
   path.join(assetsDir, 'Abi.png'),
-  path.join(assetsDir, 'abi_nobg.png'),
-  path.join(assetsDir, 'Abi_blackandWhite.png'),
   path.join(assetsDir, 'AK.png'),
   path.join(projectsDir, 'Gemini_Generated_Image_bwmd4sbwmd4sbwmd.png'),
   path.join(projectsDir, 'Lucid_Origin_A_project_management_dashboard_with_task_boards_k_1.jpg'),

@@ -66,20 +66,33 @@ const Hero = () => {
         <div className='flex flex-wrap lg:flex-row-reverse'>
             <div className='w-full lg:w-1/2'>
                 <div className='flex justify-center lg:p-8'>
-                    <motion.picture 
-                      initial={{ x: 100, opacity:0}}
-                      animate={{ x:0, opacity:1}}
-                      transition={{duration:1, delay: isMobile ? 0 : 1.5}}
-                    >
-                      <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
-                      <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
-                        width={500}
-                        height={500}
-                        decoding='async' 
-                        loading='eager'
-                        fetchpriority='high'
-                        sizes="(max-width: 768px) 100vw, 50vw" />
-                    </motion.picture>
+                    {isMobile ? (
+                      <picture>
+                        <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
+                        <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
+                          width={500}
+                          height={500}
+                          decoding='async' 
+                          loading='eager'
+                          fetchpriority='high'
+                          sizes="(max-width: 768px) 100vw, 50vw" />
+                      </picture>
+                    ) : (
+                      <motion.picture 
+                        initial={{ x: 100, opacity:0}}
+                        animate={{ x:0, opacity:1}}
+                        transition={{duration:1, delay:1.5}}
+                      >
+                        <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
+                        <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
+                          width={500}
+                          height={500}
+                          decoding='async' 
+                          loading='eager'
+                          fetchpriority='high'
+                          sizes="(max-width: 768px) 100vw, 50vw" />
+                      </motion.picture>
+                    )}
                 </div>
             </div>
             <div className='w-full lg:w-1/2'>
