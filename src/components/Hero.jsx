@@ -60,6 +60,7 @@ const Hero = () => {
     };
   }, []);
 
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches;
   return (
     <div className='pb-4 lg:mb-36'>
         <div className='flex flex-wrap lg:flex-row-reverse'>
@@ -68,7 +69,7 @@ const Hero = () => {
                     <motion.picture 
                       initial={{ x: 100, opacity:0}}
                       animate={{ x:0, opacity:1}}
-                      transition={{duration:1, delay:1.5}}
+                      transition={{duration:1, delay: isMobile ? 0 : 1.5}}
                     >
                       <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
                       <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
