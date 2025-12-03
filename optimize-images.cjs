@@ -22,6 +22,16 @@ images.forEach((input) => {
   if (input.includes('Abi.png')) {
     sharpInstance = sharpInstance.resize(500, 500, { fit: 'inside' });
     sharpInstance = sharpInstance.webp({ quality: 70 });
+    sharp(input)
+      .resize(320, 320, { fit: 'inside' })
+      .webp({ quality: 70 })
+      .toFile(path.join(assetsDir, 'Abi.mobile.webp'), (err) => {
+        if (err) {
+          console.error(`Error processing mobile variant for ${input}:`, err);
+        } else {
+          console.log(`Converted ${input} to mobile variant Abi.mobile.webp`);
+        }
+      });
   } else if (input.includes(path.join('assets', 'projects'))) {
     sharpInstance = sharpInstance.resize(320, 320, { fit: 'inside' });
     sharpInstance = sharpInstance.webp({ quality: 70 });

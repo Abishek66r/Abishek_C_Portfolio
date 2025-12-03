@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import profilePic from "../assets/Abi.png";
 import profilePicWebp from "../assets/Abi.webp";
+import profilePicMobileWebp from "../assets/Abi.mobile.webp";
 import { HERO_CONTENT } from "../constants/index.js"
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
@@ -69,11 +70,12 @@ const Hero = () => {
                       animate={{ x:0, opacity:1}}
                       transition={{duration:1, delay:1.5}}
                     >
-                      <source srcSet={profilePicWebp} type="image/webp" />
+                      <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
                       <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
                         width={500}
                         height={500}
                         decoding='async' 
+                        loading='eager'
                         fetchpriority='high'
                         sizes="(max-width: 768px) 100vw, 50vw" />
                     </motion.picture>
