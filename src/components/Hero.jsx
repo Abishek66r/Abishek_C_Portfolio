@@ -74,6 +74,7 @@ const Hero = () => {
                         width={500}
                         height={500}
                         decoding='async' 
+                        fetchpriority='high'
                         sizes="(max-width: 768px) 100vw, 50vw" />
                     </motion.picture>
                 </div>
