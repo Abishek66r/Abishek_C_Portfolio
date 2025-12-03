@@ -22,8 +22,9 @@ const Projects = () => {
              className='w-full md:w-1/3'>
            <picture>
               <source srcSet={project.webp} type="image/webp" />
+              <source srcSet={project.image} type="image/jpeg" />
               <img
-                src={project.image}
+                src={project.webp}
                 width={250}
                 height={250}
                 alt={project.title}

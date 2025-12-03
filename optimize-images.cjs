@@ -21,9 +21,12 @@ images.forEach((input) => {
   let sharpInstance = sharp(input);
   if (input.includes('Abi.png')) {
     sharpInstance = sharpInstance.resize(500, 500, { fit: 'inside' });
-    sharpInstance.webp({ quality: 70 });
+    sharpInstance = sharpInstance.webp({ quality: 70 });
+  } else if (input.includes(path.join('assets', 'projects'))) {
+    sharpInstance = sharpInstance.resize(320, 320, { fit: 'inside' });
+    sharpInstance = sharpInstance.webp({ quality: 70 });
   } else {
-    sharpInstance.webp({ quality: 80 });
+    sharpInstance = sharpInstance.webp({ quality: 80 });
   }
   sharpInstance.toFile(output, (err) => {
     if (err) {
