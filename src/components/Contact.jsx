@@ -116,17 +116,18 @@ const Contact = () => {
             {/* Honeypot */}
             <input type='text' name='botcheck' className='hidden' tabIndex='-1' autoComplete='off' />
 
+            <div>
+              <label htmlFor='name' className='block text-sm text-stone-400'>Name <span className='text-red-400' aria-hidden='true'>*</span></label>
+              <input
+                id='name'
+                name='name'
+                type='text'
+                required
+                className='mt-1 w-full rounded bg-stone-900 px-3 py-2 text-stone-200 outline-none ring-1 ring-stone-800 focus:ring-stone-600'
+              />
+            </div>
+
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
-              <div>
-                <label htmlFor='name' className='block text-sm text-stone-400'>Name <span className='text-red-400' aria-hidden='true'>*</span></label>
-                <input
-                  id='name'
-                  name='name'
-                  type='text'
-                  required
-                  className='mt-1 w-full rounded bg-stone-900 px-3 py-2 text-stone-200 outline-none ring-1 ring-stone-800 focus:ring-stone-600'
-                />
-              </div>
               <div>
                 <label htmlFor='email' className='block text-sm text-stone-400'>Email <span className='text-red-400' aria-hidden='true'>*</span></label>
                 <input
@@ -134,6 +135,18 @@ const Contact = () => {
                   name='email'
                   type='email'
                   required
+                  className='mt-1 w-full rounded bg-stone-900 px-3 py-2 text-stone-200 outline-none ring-1 ring-stone-800 focus:ring-stone-600'
+                />
+              </div>
+              <div>
+                <label htmlFor='mobile' className='block text-sm text-stone-400'>Mobile Number <span className='text-red-400' aria-hidden='true'>*</span></label>
+                <input
+                  id='mobile'
+                  name='mobile'
+                  type='tel'
+                  required
+                  pattern='[+]?[0-9\s\-]{10,15}'
+                  title='Please enter a valid mobile number (10-15 digits)'
                   className='mt-1 w-full rounded bg-stone-900 px-3 py-2 text-stone-200 outline-none ring-1 ring-stone-800 focus:ring-stone-600'
                 />
               </div>
