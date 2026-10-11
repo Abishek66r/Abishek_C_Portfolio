@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import profilePic from "../assets/Abi.png";
-import profilePicWebp from "../assets/Abi.webp";
-import profilePicMobileWebp from "../assets/Abi.mobile.webp";
-import { HERO_CONTENT } from "../constants/index.js"
+import profilePic from "../assets/new_portfolio_pic.png";
+import profilePicWebp from "../assets/new_portfolio_pic.webp";
+import { HERO_CONTENT, HERO_HEADLINE } from "../constants/index.js"
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
@@ -31,8 +30,9 @@ const childVarients = {
     }
 }
 
+const fullTitle = HERO_HEADLINE;
+
 const Hero = () => {
-  const fullTitle = "Python Full-Stack Developer";
   const [typed, setTyped] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
 
@@ -68,7 +68,7 @@ const Hero = () => {
                 <div className='flex justify-center lg:p-8'>
                     {isMobile ? (
                       <picture>
-                        <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
+                        <source srcSet={profilePicWebp} type="image/webp" />
                         <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
                           width={500}
                           height={500}
@@ -83,7 +83,7 @@ const Hero = () => {
                         animate={{ x:0, opacity:1}}
                         transition={{duration:1, delay:1.5}}
                       >
-                        <source srcSet={`${profilePicMobileWebp} 320w, ${profilePicWebp} 500w`} type="image/webp" />
+                        <source srcSet={profilePicWebp} type="image/webp" />
                         <img src={profilePic} alt="Abishek" className='border border-stone-900 rounded-3xl' 
                           width={500}
                           height={500}

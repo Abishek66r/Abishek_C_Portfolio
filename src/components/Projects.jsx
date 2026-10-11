@@ -20,11 +20,8 @@ const Projects = () => {
              initial={{opacity: 0, x: -100}}
              transition={{duration: 1}}
              className='w-full md:w-1/3'>
-           <picture>
-              <source srcSet={project.webp} type="image/webp" />
-              <source srcSet={project.image} type="image/jpeg" />
               <img
-                src={project.webp}
+                src={project.image}
                 width={250}
                 height={250}
                 alt={project.title}
@@ -33,7 +30,6 @@ const Projects = () => {
                 decoding='async'
                 sizes='(min-width: 768px) 300px, (min-width: 640px) 260px, 220px'
               />
-            </picture>
            </motion.div>
            <motion.div 
              whileInView={{opacity:  1, x:0}}
@@ -42,6 +38,16 @@ const Projects = () => {
              className='w-full md:w-2/3 space-y-1 text-center md:text-left'>
              <h3 className='-mt-2 md:mt-0 font-semibold leading-tight text-xl sm:text-2xl tracking-tight'>{project.title}</h3>
              <p className='text-stone-400 text-xs sm:text-sm md:text-base leading-relaxed break-words md:max-w-[60ch]' style={{ textAlign: 'justify', textJustify: 'inter-word' }}>{project.description}</p>
+             {project.website && (
+               <a
+                 href={project.website}
+                 target='_blank'
+                 rel='noreferrer'
+                 className='mt-2 inline-flex items-center text-sm font-medium text-stone-200 underline decoration-stone-500 underline-offset-4 transition-colors hover:text-white'
+               >
+                 Visit website
+               </a>
+             )}
              <div className='w-full flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mt-2 mb-4 md:mb-0'>
                {project.technologies.map((tech, index) => (
                  <span

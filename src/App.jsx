@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Technologies from "./components/Technologies";
+import Certifications from "./components/Certifications";
 
 const Projects = lazy(() => import("./components/Projects"));
 const Experience = lazy(() => import('./components/Experience'));
@@ -21,6 +22,7 @@ const App = () => {
         <Navbar/>
         <section id="home" aria-label="Home"><Hero /></section>
         <section id="technologies" aria-label="Technologies"><Technologies /></section>
+        <section id="certifications" aria-label="Certifications"><Certifications /></section>
         <section id="projects" aria-label="Projects"><Suspense fallback={<div>Loading...</div>}><Projects /></Suspense></section>
         <section id="experience" aria-label="Experience"><Suspense fallback={<div>Loading...</div>}><Experience/></Suspense></section>
         <section id="contact" aria-label="Contact"><Suspense fallback={<div>Loading...</div>}><Contact /></Suspense></section>
