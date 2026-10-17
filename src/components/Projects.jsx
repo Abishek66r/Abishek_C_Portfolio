@@ -32,7 +32,7 @@ const Projects = () => {
               />
            </motion.div>
            <motion.div 
-             whileInView={{opacity:  1, x:0}}
+             whileInView={{opacity: 1, x: 0, y: 0}}
              initial={{opacity: 0, y: 100}}
              transition={{duration: 1}}
              className='w-full md:w-2/3 space-y-1 text-center md:text-left'>
