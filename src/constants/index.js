@@ -1,10 +1,16 @@
 import project1 from "../assets/projects/nilavam_hero.png";
+import project2 from "../assets/projects/parithi_studios_hero.png";
 import project3 from "../assets/projects/majestic_hero.png";
 
 // ⭐ HERO SECTION
 export const HERO_CONTENT = `Software Developer at Cognizant, building practical digital products with a strong focus on full-stack development, responsive UI design, and AI-assisted workflows. I enjoy turning business ideas into reliable web experiences, combining clean frontend execution with scalable backend logic and real-world problem solving.`;
 
-export const HERO_HEADLINE = "Software Developer at Cognizant | Full-Stack Developer | Freelance Web Developer | AI-Assisted Development";
+export const HERO_DESIGNATIONS = [
+  "Software Developer at Cognizant",
+  "Full-Stack Developer",
+  "Freelance Web Developer",
+  "AI-Assisted Development",
+];
 
 // ⭐ CERTIFICATIONS
 export const CERTIFICATIONS = [
@@ -77,11 +83,11 @@ export const PROJECTS = [
   },
   {
     title: "Parithi Studios",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+    image: project2,
     description:
       "A client-facing studio and business website focused on polished brand presentation, service clarity, responsive layouts, and contact-driven lead generation for creative work.",
     technologies: ["Responsive UI", "Brand Design", "Lead Capture", "Client Website"],
-    website: null,
+    website: "https://studios-by-abishek.vercel.app/",
   },
   {
     title: "Majestic Beverages",

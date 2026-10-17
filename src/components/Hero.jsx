@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import profilePic from "../assets/new_portfolio_pic.png";
 import profilePicWebp from "../assets/new_portfolio_pic.webp";
-import { HERO_CONTENT, HERO_HEADLINE } from "../constants/index.js"
+import { HERO_CONTENT, HERO_DESIGNATIONS } from "../constants/index.js"
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
@@ -30,33 +30,55 @@ const childVarients = {
     }
 }
 
-const fullTitle = HERO_HEADLINE;
-
 const Hero = () => {
   const [typed, setTyped] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
 
   useEffect(() => {
-    let i = 0;
-    let typeInterval;
-    const startTyping = setTimeout(() => {
-      typeInterval = setInterval(() => {
-        setTyped(fullTitle.slice(0, i + 1));
-        i++;
-        if (i > fullTitle.length) {
-          clearInterval(typeInterval);
+    let designationIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+    let typingTimeout;
+
+    const animateDesignation = () => {
+      const designation = HERO_DESIGNATIONS[designationIndex];
+
+      if (deleting) {
+        characterIndex -= 1;
+        setTyped(designation.slice(0, characterIndex));
+
+        if (characterIndex === 0) {
+          deleting = false;
+          designationIndex = (designationIndex + 1) % HERO_DESIGNATIONS.length;
+          typingTimeout = setTimeout(animateDesignation, 350);
+          return;
         }
-      }, 110); // slower per-letter typing speed for readability
-    }, 200); // modest initial delay for visibility
+
+        typingTimeout = setTimeout(animateDesignation, 45);
+        return;
+      }
+
+      characterIndex += 1;
+      setTyped(designation.slice(0, characterIndex));
+
+      if (characterIndex === designation.length) {
+        deleting = true;
+        typingTimeout = setTimeout(animateDesignation, 1200);
+        return;
+      }
+
+      typingTimeout = setTimeout(animateDesignation, 75);
+    };
+
+    typingTimeout = setTimeout(animateDesignation, 200);
 
     const cursorInterval = setInterval(() => {
       setCursorVisible((v) => !v);
-    }, 400); // tighter blink for strict caret feel
+    }, 400);
 
     return () => {
-      clearInterval(typeInterval);
+      clearTimeout(typingTimeout);
       clearInterval(cursorInterval);
-      clearTimeout(startTyping);
     };
   }, []);
 
@@ -115,21 +137,33 @@ const Hero = () => {
                         className='my-2 max-w-lg py-6 text-base sm:text-lg md:text-xl leading-relaxed lg:text-left'
                         style={{ textAlign: "justify", textJustify: "inter-word" }}
                         >{HERO_CONTENT}</motion.p>
-                    <motion.a
-                      variants={childVarients}
-                      href="/Abishek New Resume.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download
-                      className="group rounded-full px-6 py-3 text-base font-medium bg-white/10 backdrop-blur-sm border border-white/20 
-                                  hover:bg-white hover:text-black hover:border-transparent 
-                                  text-white tracking-wide 
-                                  shadow-[0_0_16px_rgba(255,255,255,0.30)] hover:shadow-[0_0_28px_rgba(255,255,255,0.60)]
-                                  transition-all duration-300 hover:scale-105 
-                                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-                    >
-                      <span className="group-hover:text-black">Download Resume</span>
-                    </motion.a>
+                    <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+                      <motion.a
+                        variants={childVarients}
+                        href="/Abishek New Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        className="group rounded-full px-6 py-3 text-base font-medium bg-white/10 backdrop-blur-sm border border-white/20
+                                    hover:bg-white hover:text-black hover:border-transparent
+                                    text-white tracking-wide
+                                    shadow-[0_0_16px_rgba(255,255,255,0.30)] hover:shadow-[0_0_28px_rgba(255,255,255,0.60)]
+                                    transition-all duration-300 hover:scale-105
+                                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                      >
+                        <span className="group-hover:text-black">Download Resume</span>
+                      </motion.a>
+                      <motion.a
+                        variants={childVarients}
+                        href="https://www.instagram.com/builtbyabishek/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visit Built by Abishek freelance studio on Instagram"
+                        className="rounded-full border border-stone-700 px-5 py-3 text-sm font-medium tracking-wide text-stone-200 transition-colors hover:border-stone-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                      >
+                        Freelance studio · @builtbyabishek
+                      </motion.a>
+                    </div>
                 </motion.div>
             </div>
         </div>
