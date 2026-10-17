@@ -1,9 +1,22 @@
 import React from 'react'
-import { FaNodeJs, FaHtml5, FaCss3Alt, FaGithub, FaPython } from 'react-icons/fa';
+import { FaNodeJs, FaHtml5, FaCss3Alt, FaGithub, FaPython, FaMousePointer } from 'react-icons/fa';
+import { FaCode, FaCompass, FaNetworkWired, FaPenNib, FaRobot } from 'react-icons/fa6';
 import { RiReactjsLine } from 'react-icons/ri';
-import { SiMongodb, SiTailwindcss, SiMysql, SiDjango, SiJavascript, SiExpress, SiPostman, SiSqlite, SiGit, SiOpenai } from 'react-icons/si';
+import { SiMongodb, SiTailwindcss, SiMysql, SiDjango, SiJavascript, SiExpress, SiPostman, SiSqlite, SiGit, SiOpenai, SiClaude, SiGithubcopilot } from 'react-icons/si';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+
+const aiSkills = [
+  { name: "Claude", Icon: SiClaude, color: "text-orange-300" },
+  { name: "GitHub Copilot", Icon: SiGithubcopilot, color: "text-sky-300" },
+  { name: "ChatGPT Codex", Icon: SiOpenai, color: "text-emerald-300" },
+  { name: "Antigravity", Icon: FaCompass, color: "text-violet-300" },
+  { name: "MCP", Icon: FaNetworkWired, color: "text-cyan-300" },
+  { name: "Prompt Engineering", Icon: FaPenNib, color: "text-amber-300" },
+  { name: "Agentic AI", Icon: FaRobot, color: "text-indigo-300" },
+  { name: "Vibe Coding", Icon: FaCode, color: "text-pink-300" },
+  { name: "Cursor", Icon: FaMousePointer, color: "text-stone-200" },
+];
 
 const iconvariants = (duration) => ({
   initial: { y: -6 },
@@ -162,6 +175,39 @@ const Technologies = () => {
             <SiPostman className='text-7xl text-orange-500 transition-transform duration-200 group-hover:scale-105' />
             <span className='mt-2 block text-center text-xs text-stone-300'>Postman</span>
           </motion.div>
+        </div>
+      </motion.div>
+
+      {/* AI Skills */}
+      <motion.div
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -100 }}
+        transition={{ duration: 1.1 }}
+        className='mb-4 rounded-xl border border-stone-700/50 bg-stone-900/30 p-6 md:col-span-2'
+      >
+        <motion.h3
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.8 }}
+          className='mb-4 text-xl font-semibold tracking-wide text-stone-200'
+        >
+          AI Skills and Tools
+        </motion.h3>
+        <div className='flex flex-wrap items-center justify-center gap-6 md:justify-start'>
+          {/* eslint-disable-next-line no-unused-vars */}
+          {aiSkills.map(({ name, Icon, color }, index) => (
+            <motion.div
+              key={name}
+              variants={iconvariants(2.4 + (index % 4) * 0.7)}
+              initial="initial"
+              animate="animate"
+              className='group relative flex w-28 flex-col items-center'
+              aria-label={name}
+            >
+              <Icon className={`text-6xl transition-transform duration-200 group-hover:scale-105 ${color}`} />
+              <span className='mt-2 text-center text-xs text-stone-300'>{name}</span>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
       </div>
